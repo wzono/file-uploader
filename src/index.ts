@@ -1,4 +1,3 @@
-import './index.html'
 import './index.scss'
 import { attachDrag } from './services/drag_'
 import { attachPreview } from './services/preview_'
@@ -8,6 +7,10 @@ window.onload = () => {
   attachDrag()
   attachPreview()
   attachUploadButtons()
+}
+
+if (module.hot) {
+  module.hot.accept()
 }
 
 
