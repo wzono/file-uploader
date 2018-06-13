@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --env=dev",
-    "build": "node ./node_modules/webpack/bin/webpack.js --env=production"
+    "dev": "cross-env NODE_ENV=dev node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --env=dev",
+    "build": "cross-env NODE_ENV=production node ./node_modules/webpack/bin/webpack.js --env=production"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,7 @@
     "autoprefixer": "^8.6.2",
     "awesome-typescript-loader": "^5.0.0",
     "clean-webpack-plugin": "^0.1.19",
+    "cross-env": "^5.2.0",
     "css-loader": "^0.28.11",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "glob": "^7.1.2",

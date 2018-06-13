@@ -7,6 +7,7 @@ const path = require('path')
 const PurifycssWebpack = require('purifycss-webpack')
 const glob = require('glob')
 const env = process.env.NODE_ENV
+console.log(env)
 
 module.exports = {
   mode: 'development',
@@ -112,7 +113,7 @@ module.exports = {
     new CleanWebpackPlugin(['./dist']),
     new ExtractTextPlugin({
       filename: "./css/style.[hash].css",
-      disable: env === 'development'
+      disable: env === 'dev'
     }),
     // 没用的css会被删除掉, 必须放在 HtmlWebpackPlugin后面
     new PurifycssWebpack({

@@ -20,7 +20,8 @@ body {
     }
   }
   main {
-    margin: 40px;
+    max-width: 700px;
+    margin: 40px auto;
     font-family: inherit;
     section.drop-area {
       border: 1px solid #dcdfe5;
