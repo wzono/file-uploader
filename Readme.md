@@ -11,7 +11,7 @@
 ## 使用
 
 ```
-  git pull https://github.com/wingsico/file_loader.git
+  git clone https://github.com/wingsico/file_loader.git
   cnpm install
   
   cnpm run dev # 本地devServer测试
