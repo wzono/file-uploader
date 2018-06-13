@@ -174,7 +174,7 @@ body {
   .preview {
     width: 500px;
     max-height: 440px;
-    
+    overflow-y: auto;
     border: 1px solid #dcdfe5;
     border-radius: 4px;
     background: #fff;
