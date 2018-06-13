@@ -37,8 +37,12 @@ class Upload {
     this.list.innerHTML = ""
     this.fileList = []
   }
-
+  
   public uploadFiles() {
+    if (this.fileList.length === 0) {
+      alert('没有需要上传的文件.')
+      return;
+    }
     let formData = new FormData();
     this
       .fileList

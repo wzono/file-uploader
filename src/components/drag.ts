@@ -8,6 +8,7 @@ interface IParam {
   onDrop : (e : DragEvent) => void;
 }
 
+
 class Drag {
   private el : HTMLElement;
 
