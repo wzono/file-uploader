@@ -3,6 +3,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const ExtractTextPlugin  = require("extract-text-webpack-plugin")
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack')
+const path = require('path')
+const PurifycssWebpack = require('purifycss-webpack')
+const glob = require('glob')
 module.exports = {
   mode: 'development',
   entry: "./src/index.ts",
@@ -42,24 +45,18 @@ module.exports = {
         ]
       }, {
         test: /\.scss?$/,
-        use: [
-          {
-            loader: 'style-loader'
-          }, {
-            loader: 'css-loader'
-          }, {
-            loader: 'sass-loader'
-          }
-        ]
-      }, {
-        test: /\.css$/,
-        use: [
-          {
-            loader: 'style-loader'
-          }, {
-            loader: 'css-loader'
-          }
-        ]
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader'
+            }, {
+              loader: 'postcss-loader'
+            },{
+              loader: 'sass-loader'
+            }
+          ]
+        })
       },
       {
         test: /\.html$/,
@@ -78,7 +75,6 @@ module.exports = {
           'file-loader', {
             loader: 'image-webpack-loader',
             options: {
-              bypassOnDebug: true, // webpack@1.x
               disable: true, // webpack@2.x and newer
             }
           }
@@ -100,7 +96,14 @@ module.exports = {
       hash: true
     }),
     new CleanWebpackPlugin(['./dist']),
-    new ExtractTextPlugin("./css/style?[hash].css"), // separate css
+    new ExtractTextPlugin({
+      filename: "./css/style.[hash].css",
+      disable: false
+    }),
+    // 没用的css会被删除掉, 必须放在 HtmlWebpackPlugin后面
+    new PurifycssWebpack({
+      paths: glob.sync(path.resolve('src/*.html'))
+    })
   ],
   optimization: {
     minimizer: [
