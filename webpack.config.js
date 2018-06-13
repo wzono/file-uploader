@@ -1,11 +1,13 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const ExtractTextPlugin  = require("extract-text-webpack-plugin")
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack')
 const path = require('path')
 const PurifycssWebpack = require('purifycss-webpack')
 const glob = require('glob')
+const env = process.env.NODE_ENV
+
 module.exports = {
   mode: 'development',
   entry: "./src/index.ts",
@@ -44,6 +46,19 @@ module.exports = {
           }
         ]
       }, {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                minimize: env === 'production'
+              }
+            }
+          ]
+        })
+      }, {
         test: /\.scss?$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
@@ -52,15 +67,14 @@ module.exports = {
               loader: 'css-loader'
             }, {
               loader: 'postcss-loader'
-            },{
+            }, {
               loader: 'sass-loader'
             }
           ]
         })
-      },
-      {
+      }, {
         test: /\.html$/,
-        loader: "raw-loader" // loaders: ['raw-loader'] is also perfectly acceptable.
+        loader: "raw-loader"
       },
 
       // All output '.js' files will have any sourcemaps re-processed by
@@ -98,7 +112,7 @@ module.exports = {
     new CleanWebpackPlugin(['./dist']),
     new ExtractTextPlugin({
       filename: "./css/style.[hash].css",
-      disable: false
+      disable: env === 'development'
     }),
     // 没用的css会被删除掉, 必须放在 HtmlWebpackPlugin后面
     new PurifycssWebpack({
@@ -106,8 +120,7 @@ module.exports = {
     })
   ],
   optimization: {
-    minimizer: [
-      new UglifyJsPlugin({
+    minimizer: [new UglifyJsPlugin({
         cache: true,
         parallel: true,
         uglifyOptions: {
@@ -116,7 +129,6 @@ module.exports = {
           mangle: true
         },
         sourceMap: true
-      })
-    ]
+      })]
   }
 };
