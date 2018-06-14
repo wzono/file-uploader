@@ -98,6 +98,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new UglifyJsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html',
@@ -114,10 +115,6 @@ module.exports = {
     new ExtractTextPlugin({
       filename: "./css/style.[hash].css",
       disable: env === 'dev'
-    }),
-    // 没用的css会被删除掉, 必须放在 HtmlWebpackPlugin后面
-    new PurifycssWebpack({
-      paths: glob.sync(path.resolve('src/*.html'))
     })
   ],
   optimization: {
@@ -125,7 +122,9 @@ module.exports = {
         cache: true,
         parallel: true,
         uglifyOptions: {
-          compress: false,
+          compress: {
+            drop_console: true
+          },
           ecma: 6,
           mangle: true
         },
