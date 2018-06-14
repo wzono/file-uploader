@@ -4,12 +4,11 @@ import {UPLOAD_URL as url} from '../utils/const'
 import {uploadButton} from '../services/button_'
 import axios from 'axios'
 
-
 class Upload {
   private el : HTMLElement;
   private list : HTMLElement;
-  private fileList: File[];
-  private bgs: any
+  private fileList : File[];
+  private bgs : any
   constructor(el : HTMLElement) {
     this.el = el;
     this.list = el.querySelector('ul');
@@ -37,7 +36,7 @@ class Upload {
     this.list.innerHTML = ""
     this.fileList = []
   }
-  
+
   public uploadFiles() {
     if (this.fileList.length === 0) {
       alert('没有需要上传的文件.')
@@ -67,8 +66,7 @@ class Upload {
             alert('上传成功')
           }, 17)
         }
-      },
-      
+      }
     }).then(res => {
       console.log('success:' + res.data.message)
     }).catch(err => {

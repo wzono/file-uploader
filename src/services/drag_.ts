@@ -22,6 +22,7 @@ const param = {
   onDrop: (e: DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    toggleStyle()
     for (let i = 0; i < e.dataTransfer.files.length; i++) {
       let file: File = e.dataTransfer.files[i]
       Upload.addListChild(file)

@@ -10,10 +10,14 @@
 
 ## 使用
 
-```
+```bash
   git clone https://github.com/wingsico/file_loader.git
   cnpm install
   
   cnpm run dev # 本地devServer测试
   cnpm run build # 打包
 ```
+
+## 直接使用
+
+**浏览器打开 `/dist/index.html` 即可**

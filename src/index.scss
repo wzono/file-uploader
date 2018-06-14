@@ -35,7 +35,9 @@ body {
       align-items: center;
       justify-content: center;
       flex-direction: column;
-
+      * {
+        pointer-events: none;
+      }
       .drop-tip {
         color: #999;
         display: block;
