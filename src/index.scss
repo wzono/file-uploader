@@ -1,5 +1,3 @@
-@import './scss/mixin.scss';
-
 html,
 body {
   height: 100%;
@@ -182,7 +180,6 @@ body {
     border-radius: 4px;
     background: #fff;
     display: none;
-    @include abs-center;
     
 
     .close {

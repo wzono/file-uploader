@@ -8,6 +8,11 @@ class Store {
   private state: State;
   constructor() {
     this.init()
+
+    // bind this
+    this.commit = this.commit.bind(this)
+    this.get = this.get.bind(this)
+    this.stateGetter = this.stateGetter.bind(this)
   }
 
   init() {

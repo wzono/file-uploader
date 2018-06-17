@@ -2,14 +2,17 @@ import './index.scss'
 import { attachDrag } from './services/drag_'
 import { attachPreview } from './services/preview_'
 import { attachUploadButtons } from './services/button_'
-import index from './store/index'
+import { getters, actions} from './store/index'
 
 window.onload = () => {
   attachDrag()
   attachPreview()
   attachUploadButtons()
-  console.log(index)
+  console.log(getters.text())
+  actions.text(["123"])
+  console.log(getters.text())
 }
+
 
 
 

@@ -1,18 +1,7 @@
 import store from "./store";
+import { generateFnsMap } from '../utils/index'
 
-const pick = (field = "", object : any = {}) => object[field]
-
-export const fnsGenerate = (saveObj : object, fn: Function) => (object : object) => Object
-  .keys(object)
-  .reduce((acc : object, cur : string) => {
-    return {
-      ...acc,
-      [cur]: fn(cur)
-    }
-  }, saveObj);
-
-const getter = {}
-const getters = fnsGenerate(getter, store.get)
-const storeGetters = getters(store.stateGetter)
+const getters = generateFnsMap(store.get)
+const storeGetters = getters(store.stateGetter()) as any
 
 export default storeGetters;

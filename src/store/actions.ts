@@ -1,8 +1,7 @@
 import store from './store'
-import { fnsGenerate } from './getters'
+import {generateFnsMap} from '../utils/index'
 
-const commiter = {}
-const commiters = fnsGenerate(commiter, store.commit)
-const actionsCommiters = commiters(store.stateGetter)
+const commiters = generateFnsMap(store.commit)
+const actionsCommiters = commiters(store.stateGetter()) as any
 
 export default actionsCommiters;

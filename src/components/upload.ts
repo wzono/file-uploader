@@ -1,7 +1,8 @@
 import {isFunction, resolveFileContent, isImage} from '../utils/util'
 import * as previewService from '../services/preview_'
-import {UPLOAD_URL as url} from '../utils/const'
-import axios from 'axios';
+import { UPLOAD_URL as url } from '../utils/const'
+
+// import axios from 'axios';
 
 class Upload {
   private el : HTMLElement;
@@ -37,6 +38,7 @@ class Upload {
   }
 
   public uploadFiles() {
+
     if (this.fileList.length === 0) {
       alert('没有需要上传的文件.')
       return;
@@ -47,30 +49,30 @@ class Upload {
       .forEach((file : File) => {
         formData.append("files", file)
       })
-    axios.post(url, formData, {
-      method: 'post',
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      },
-      timeout: 10000,
-      onUploadProgress: (e: any) => {
-        console.log(this)
-        let percentage = Math.round((e.loaded * 100) / e.total) || 0
-        for (let i = 0; i < this.bgs.length; i++) {
-          console.log(percentage)
-          this.bgs[i].style.width = percentage + "%"
-        }
-        if (percentage === 100) {
-          setTimeout(() => {
-            alert('上传成功')
-          }, 17)
-        }
-      }
-    }).then((res: any) => {
-      console.log('success:' + res.data.message)
-    }).catch((err: Error) => {
-      console.error('failed:' + err)
-    })
+    // axios.post(url, formData, {
+    //   method: 'post',
+    //   headers: {
+    //     'Content-Type': 'multipart/form-data'
+    //   },
+    //   timeout: 10000,
+    //   onUploadProgress: (e: any) => {
+    //     console.log(this)
+    //     let percentage = Math.round((e.loaded * 100) / e.total) || 0
+    //     for (let i = 0; i < this.bgs.length; i++) {
+    //       console.log(percentage)
+    //       this.bgs[i].style.width = percentage + "%"
+    //     }
+    //     if (percentage === 100) {
+    //       setTimeout(() => {
+    //         alert('上传成功')
+    //       }, 17)
+    //     }
+    //   }
+    // }).then((res: any) => {
+    //   console.log('success:' + res.data.message)
+    // }).catch((err: Error) => {
+    //   console.error('failed:' + err)
+    // })
   }
 
   private addElmentList(file : File) {
