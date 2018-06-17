@@ -1,8 +1,7 @@
 import {isFunction, resolveFileContent, isImage} from '../utils/util'
 import * as previewService from '../services/preview_'
 import {UPLOAD_URL as url} from '../utils/const'
-import {uploadButton} from '../services/button_'
-import axios from 'axios'
+import axios from 'axios';
 
 class Upload {
   private el : HTMLElement;
@@ -54,7 +53,7 @@ class Upload {
         'Content-Type': 'multipart/form-data'
       },
       timeout: 10000,
-      onUploadProgress: (e) => {
+      onUploadProgress: (e: any) => {
         console.log(this)
         let percentage = Math.round((e.loaded * 100) / e.total) || 0
         for (let i = 0; i < this.bgs.length; i++) {
@@ -67,9 +66,9 @@ class Upload {
           }, 17)
         }
       }
-    }).then(res => {
+    }).then((res: any) => {
       console.log('success:' + res.data.message)
-    }).catch(err => {
+    }).catch((err: Error) => {
       console.error('failed:' + err)
     })
   }

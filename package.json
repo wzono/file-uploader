@@ -1,8 +1,8 @@
 {
-  "name": "H5_some_works",
+  "name": "dossier",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env NODE_ENV=dev node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --env=dev",
@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/webpack-env": "^1.13.6",
     "autoprefixer": "^8.6.2",
     "awesome-typescript-loader": "^5.0.0",
