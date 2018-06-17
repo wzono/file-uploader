@@ -9,6 +9,8 @@ window.onload = () => {
   attachUploadButtons()
 }
 
+
+
 if (module.hot) {
   module.hot.accept()
 }

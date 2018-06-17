@@ -2,7 +2,7 @@
   "name": "H5_some_works",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env NODE_ENV=dev node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --env=dev",
@@ -15,6 +15,7 @@
     "@types/webpack-env": "^1.13.6",
     "autoprefixer": "^8.6.2",
     "awesome-typescript-loader": "^5.0.0",
+    "babel-preset-es2015": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "cross-env": "^5.2.0",
     "css-loader": "^0.28.11",
