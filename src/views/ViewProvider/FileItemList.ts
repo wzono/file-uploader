@@ -13,8 +13,7 @@ FileItemListInterface {
   public render() {
     return h(`
       <section class="file-item-list__view">
-        ${this.files.map(file => {new FileItem()})
-        }
+        
       </section>
     `)}
 
