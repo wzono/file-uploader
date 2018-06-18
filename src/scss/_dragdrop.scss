@@ -1,0 +1,35 @@
+.drop-area__view {
+  border: 1px solid $color-tint-gray;
+  border-radius: 4px;
+  height: 240px;
+  text-align: center;
+  padding-top: 25px;
+  margin-bottom: 16px;
+  background-color: #fafafa;
+  flex-direction: column;
+  @include flex-center;
+  @include prevent-child-event;
+
+  .drop-tip__text {
+    color: $color-tint-black;
+    display: block;
+    font-size: 30px;
+  }
+
+  .drop-icon {
+    margin-top: 6px;
+    width: 28px;
+    height: 28px;
+    background-position: -70px -2px;
+  }
+
+  &.drag-over {
+    background-color: $color-dark-white;
+    .drop-tip__text {
+      color: $color-dark-black;
+    }
+    .drop-icon {
+      background-position: -42px -2px;
+    }
+  }
+}

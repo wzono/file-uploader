@@ -1,0 +1,51 @@
+.upload__view {
+  border: 1px solid $color-tint-gray;
+  border-radius: 4px;
+  height: 440px;
+  overflow: hidden;
+  .upload__title {
+    line-height: 40px;
+    background-color: $color-dark-white;
+    text-align: center;
+    color: $color-tint-black;
+    border-bottom: 1px solid $color-tint-gray;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    margin: 0;
+    font-family: inherit;
+    font-weight: normal;
+  }
+
+  .upload__list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    .file-item__view {
+      line-height: 30px;
+      color: #666f80;
+      display: flex;
+      border-bottom: 1px solid #cdcdcd;
+      position: relative;
+      .file-item {
+        flex: 2;
+        @include flex-center;
+      }
+
+      .file-item__name {
+        flex: 4;
+        text-align: left;
+        padding-left: 15px;
+      }
+
+      .file-item__button-area {
+        flex: 1;
+        .icon {
+          display: inline-block;
+          text-align: center;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+html,
+body {
+  height: 100%;
+}
+
+
+body {
+  font-family: $font-family-default;
+  font-size: $font-size-default;
+}
+
+#root {
+  margin: 30px;
+}
+
+main {
+  margin: 30px auto;
+  max-width: 500px;
+}
+
+.icon {
+  background: url('https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/soutu/img/soutu_icons_sample_e128610.png')
+    no-repeat;
+  display: inline-block;
+}
