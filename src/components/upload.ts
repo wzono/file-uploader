@@ -1,6 +1,5 @@
 import {isFunction, resolveFileContent, isImage} from '../utils/util'
 import * as previewService from '../services/preview_'
-import { UPLOAD_URL as url } from '../utils/const'
 
 // import axios from 'axios';
 

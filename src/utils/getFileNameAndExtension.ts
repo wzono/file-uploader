@@ -1,5 +1,3 @@
-import { FileNameAndExtension } from './types/index'
-
 /**
 * Takes a full filename string and returns an object {name, extension}
 *

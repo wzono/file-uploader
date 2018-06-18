@@ -1,5 +1,5 @@
 import config from '../../core/config'
-import { renderDOMString as h } from '../../utils/index'
+import { stringToDom as h } from '../../utils/index'
 
 export default class HeaderView {
   private title: string = config.header_title;
